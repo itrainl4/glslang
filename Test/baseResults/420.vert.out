@@ -48,7 +48,7 @@ ERROR: 0:141: 'rgba32f' : does not apply to unsigned integer images
 ERROR: 0:142: 'r8_snorm' : does not apply to signed integer images 
 ERROR: 0:143: 'rgba32ui' : does not apply to signed integer images 
 ERROR: 0:144: 'r8ui' : does not apply to signed integer images 
-ERROR: 0:147: 'offset on block member' : not supported for this version or the enabled extensions 
+ERROR: 0:147: '"offset" on block member' : not supported for this version or the enabled extensions 
 ERROR: 0:147: 'offset/align' : can only be used with std140, std430, or scalar layout packing 
 ERROR: 0:157: 'textureQueryLevels' : no matching overloaded function found 
 ERROR: 0:157: 'assign' :  cannot convert from ' const float' to ' temp int'
@@ -281,7 +281,7 @@ ERROR: node is still EOpNull!
 0:?     'sampb3' (layout( binding=80) uniform sampler2D)
 0:?     'sampb4' (layout( binding=31) uniform sampler2D)
 0:?     'sampb5' (layout( binding=79) uniform 2-element array of sampler2D)
-0:?     'anon@3' ( out block{ out 4-element array of float ClipDistance gl_ClipDistance, })
+0:?     'anon@3' ( out block{ out 4-element array of float ClipDistance gl_ClipDistance})
 0:?     'patchIn' ( patch in 4-component vector of float)
 0:?     'patchOut' ( smooth patch out 4-component vector of float)
 0:?     'comma0' ( temp int)
@@ -306,6 +306,7 @@ ERROR: node is still EOpNull!
 0:?     'samp1D' ( uniform sampler1D)
 0:?     'samp1Ds' ( uniform sampler1DShadow)
 0:?     'badArray' (layout( binding=0) writeonly uniform unsized 1-element array of image1D)
+0:?     'u_sampler0' (layout( binding=74) uniform 6-element array of sampler2D)
 0:?     'gl_VertexID' ( gl_VertexId int VertexId)
 0:?     'gl_InstanceID' ( gl_InstanceId int InstanceId)
 
@@ -363,7 +364,7 @@ ERROR: node is still EOpNull!
 0:?     'sampb3' (layout( binding=80) uniform sampler2D)
 0:?     'sampb4' (layout( binding=31) uniform sampler2D)
 0:?     'sampb5' (layout( binding=79) uniform 2-element array of sampler2D)
-0:?     'anon@3' ( out block{ out 4-element array of float ClipDistance gl_ClipDistance, })
+0:?     'anon@3' ( out block{ out 4-element array of float ClipDistance gl_ClipDistance})
 0:?     'patchIn' ( patch in 4-component vector of float)
 0:?     'patchOut' ( smooth patch out 4-component vector of float)
 0:?     'comma0' ( temp int)
@@ -388,6 +389,7 @@ ERROR: node is still EOpNull!
 0:?     'samp1D' ( uniform sampler1D)
 0:?     'samp1Ds' ( uniform sampler1DShadow)
 0:?     'badArray' (layout( binding=0) writeonly uniform 1-element array of image1D)
+0:?     'u_sampler0' (layout( binding=74) uniform 6-element array of sampler2D)
 0:?     'gl_VertexID' ( gl_VertexId int VertexId)
 0:?     'gl_InstanceID' ( gl_InstanceId int InstanceId)
 

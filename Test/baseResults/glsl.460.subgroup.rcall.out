@@ -85,7 +85,11 @@ ERROR: 0:96: 'subgroupPartitionedExclusiveMaxNV' : required extension not reques
 ERROR: 0:97: 'subgroupPartitionedExclusiveAndNV' : required extension not requested: GL_NV_shader_subgroup_partitioned
 ERROR: 0:98: 'subgroupPartitionedExclusiveOrNV' : required extension not requested: GL_NV_shader_subgroup_partitioned
 ERROR: 0:99: 'subgroupPartitionedExclusiveXorNV' : required extension not requested: GL_NV_shader_subgroup_partitioned
-ERROR: 86 compilation errors.  No code generated.
+ERROR: 0:247: 'gl_WarpsPerSMNV' : required extension not requested: GL_NV_shader_sm_builtins
+ERROR: 0:248: 'gl_SMCountNV' : required extension not requested: GL_NV_shader_sm_builtins
+ERROR: 0:249: 'gl_WarpIDNV' : required extension not requested: GL_NV_shader_sm_builtins
+ERROR: 0:250: 'gl_SMIDNV' : required extension not requested: GL_NV_shader_sm_builtins
+ERROR: 90 compilation errors.  No code generated.
 
 
 Shader version: 460
@@ -98,14 +102,15 @@ Requested GL_KHR_shader_subgroup_shuffle
 Requested GL_KHR_shader_subgroup_shuffle_relative
 Requested GL_KHR_shader_subgroup_vote
 Requested GL_NV_ray_tracing
+Requested GL_NV_shader_sm_builtins
 Requested GL_NV_shader_subgroup_partitioned
 ERROR: node is still EOpNull!
 0:4  Function Definition: undeclared_errors(vf4; ( global 4-component vector of float)
 0:4    Function Parameters: 
 0:4      'f4' ( in 4-component vector of float)
 0:?     Sequence
-0:7      'gl_SubgroupSize' ( in uint SubgroupSize)
-0:8      'gl_SubgroupInvocationID' ( in uint SubgroupInvocationID)
+0:7      'gl_SubgroupSize' ( volatile in uint SubgroupSize)
+0:8      'gl_SubgroupInvocationID' ( volatile in uint SubgroupInvocationID)
 0:9      subgroupBarrier ( global void)
 0:10      subgroupMemoryBarrier ( global void)
 0:11      subgroupMemoryBarrierBuffer ( global void)
@@ -123,11 +128,11 @@ ERROR: node is still EOpNull!
 0:19          false (const bool)
 0:20      subgroupAllEqual ( global bool)
 0:20        'f4' ( in 4-component vector of float)
-0:22      'gl_SubgroupEqMask' ( in 4-component vector of uint SubgroupEqMask)
-0:23      'gl_SubgroupGeMask' ( in 4-component vector of uint SubgroupGeMask)
-0:24      'gl_SubgroupGtMask' ( in 4-component vector of uint SubgroupGtMask)
-0:25      'gl_SubgroupLeMask' ( in 4-component vector of uint SubgroupLeMask)
-0:26      'gl_SubgroupLtMask' ( in 4-component vector of uint SubgroupLtMask)
+0:22      'gl_SubgroupEqMask' ( volatile in 4-component vector of uint SubgroupEqMask)
+0:23      'gl_SubgroupGeMask' ( volatile in 4-component vector of uint SubgroupGeMask)
+0:24      'gl_SubgroupGtMask' ( volatile in 4-component vector of uint SubgroupGtMask)
+0:25      'gl_SubgroupLeMask' ( volatile in 4-component vector of uint SubgroupLeMask)
+0:26      'gl_SubgroupLtMask' ( volatile in 4-component vector of uint SubgroupLtMask)
 0:27      subgroupBroadcast ( global 4-component vector of float)
 0:27        'f4' ( in 4-component vector of float)
 0:27        Constant:
@@ -354,8 +359,8 @@ ERROR: node is still EOpNull!
 0:119  Function Definition: basic_works( ( global void)
 0:119    Function Parameters: 
 0:121    Sequence
-0:121      'gl_SubgroupSize' ( in uint SubgroupSize)
-0:122      'gl_SubgroupInvocationID' ( in uint SubgroupInvocationID)
+0:121      'gl_SubgroupSize' ( volatile in uint SubgroupSize)
+0:122      'gl_SubgroupInvocationID' ( volatile in uint SubgroupInvocationID)
 0:123      subgroupBarrier ( global void)
 0:124      subgroupMemoryBarrier ( global void)
 0:125      subgroupMemoryBarrierBuffer ( global void)
@@ -365,11 +370,11 @@ ERROR: node is still EOpNull!
 0:131    Function Parameters: 
 0:131      'f4' ( in 4-component vector of float)
 0:132    Sequence
-0:132      'gl_SubgroupEqMask' ( in 4-component vector of uint SubgroupEqMask)
-0:133      'gl_SubgroupGeMask' ( in 4-component vector of uint SubgroupGeMask)
-0:134      'gl_SubgroupGtMask' ( in 4-component vector of uint SubgroupGtMask)
-0:135      'gl_SubgroupLeMask' ( in 4-component vector of uint SubgroupLeMask)
-0:136      'gl_SubgroupLtMask' ( in 4-component vector of uint SubgroupLtMask)
+0:132      'gl_SubgroupEqMask' ( volatile in 4-component vector of uint SubgroupEqMask)
+0:133      'gl_SubgroupGeMask' ( volatile in 4-component vector of uint SubgroupGeMask)
+0:134      'gl_SubgroupGtMask' ( volatile in 4-component vector of uint SubgroupGtMask)
+0:135      'gl_SubgroupLeMask' ( volatile in 4-component vector of uint SubgroupLeMask)
+0:136      'gl_SubgroupLtMask' ( volatile in 4-component vector of uint SubgroupLtMask)
 0:137      subgroupBroadcast ( global 4-component vector of float)
 0:137        'f4' ( in 4-component vector of float)
 0:137        Constant:
@@ -614,6 +619,20 @@ ERROR: node is still EOpNull!
 0:241      subgroupPartitionedExclusiveXorNV ( global 4-component vector of uint)
 0:241        'ballot' ( temp 4-component vector of uint)
 0:241        'parti' ( temp 4-component vector of uint)
+0:245  Function Definition: sm_builtins_err( ( global void)
+0:245    Function Parameters: 
+0:247    Sequence
+0:247      'gl_WarpsPerSMNV' ( in uint WarpsPerSMNV)
+0:248      'gl_SMCountNV' ( in uint SMCountNV)
+0:249      'gl_WarpIDNV' ( volatile in uint WarpIDNV)
+0:250      'gl_SMIDNV' ( volatile in uint SMIDNV)
+0:257  Function Definition: sm_builtins( ( global void)
+0:257    Function Parameters: 
+0:259    Sequence
+0:259      'gl_WarpsPerSMNV' ( in uint WarpsPerSMNV)
+0:260      'gl_SMCountNV' ( in uint SMCountNV)
+0:261      'gl_WarpIDNV' ( volatile in uint WarpIDNV)
+0:262      'gl_SMIDNV' ( volatile in uint SMIDNV)
 0:?   Linker Objects
 0:?     'data0' (layout( location=0) callableDataNV 4-component vector of float)
 0:?     'anon@0' (layout( location=1) callableDataInNV block{ callableDataInNV uint data1})
@@ -632,6 +651,7 @@ Requested GL_KHR_shader_subgroup_shuffle
 Requested GL_KHR_shader_subgroup_shuffle_relative
 Requested GL_KHR_shader_subgroup_vote
 Requested GL_NV_ray_tracing
+Requested GL_NV_shader_sm_builtins
 Requested GL_NV_shader_subgroup_partitioned
 ERROR: node is still EOpNull!
 0:109  Function Definition: main( ( global void)
